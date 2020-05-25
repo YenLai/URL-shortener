@@ -5,8 +5,7 @@ function getRandom() {
   const arr = LowercaseLetter + UppercareLetter + number
 
   const Shorturl = require('./models/shortURL')
-  const mongoose = require('mongoose')
-  mongoose.connect('mongodb://localhost/url')
+  require('./config/mongoose')
 
   let keystr = ''
   while (keystr === '') {
