@@ -8,7 +8,8 @@ const shortURL_schema = new Schema({
   },
   short_url: {
     type: String,
-    require: true
+    require: true,
+    unique: true
   }
 })
 

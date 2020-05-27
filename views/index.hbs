@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <form action="/shorten" method="post">
-    <input type="text" name="URL">
+    <input type="text" name="URL" value="{{originURL}}">
     <button type="submit">產生短網址</button>
-    <label class="ml-5" style="color: brown;" for="shorturl">{{shorturl}}</label>
+    <textarea class="ml-5" style="color: brown;" for="shorturl">{{shortURL}}</textarea>
   </form>
 </div>
