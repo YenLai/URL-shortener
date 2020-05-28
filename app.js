@@ -19,19 +19,27 @@ app.get('/', (req, res) => {
 })
 
 app.post('/shorten', (req, res) => {
-  console.log(req.hostname)
+  const hostname = req.hostname
   const originURL = req.body.URL
   Shorturl.findOne({ origin_url: originURL }).lean()
     // check if origin url exists 
     .then((url) => {
       if (!url) {
-        createURL(originURL, res)
+        createURL(originURL, res, hostname)
       }
       else {
         console.log('url exist!')
-        res.render('index', { originURL: url.origin_url, shortURL: url.short_url })
+        res.render('index', { originURL, shortURL: url.short_url, hostname })
       }
     })
+})
+
+app.get('/:id', (req, res) => {
+  const id = req.params.id
+  console.log(id)
+  Shorturl.findOne({ short_url: id })
+    .then(url => res.redirect(`${url.origin_url}`))
+    .catch(() => res.send(`<h1>Can not find this page.</h1>`))
 })
 
 app.listen(PORT, () => {

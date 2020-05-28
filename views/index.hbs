@@ -9,9 +9,14 @@
             <input type="text" class="my-2 w-100" style=" border-radius:5px ; height:2.5em" name="URL"
               value="{{originURL}}">
           </div>
+          {{#if shortURL}}
           <div class="col-12">
-            <label class="my-3" style="color: brown;" for="shorturl">{{shortURL}}</label>
+            <label class="my-3" id="shorturl" type="text" style="color: brown; vertical-align:middle" for="shorturl">
+              http://{{hostname}}:3000/{{shortURL}}</label>
+            <button class="btn btn-outline-secondary ml-1" id="copy" data-clipboard-target="#shorturl"><i
+                class="far fa-copy"></i></button>
           </div>
+          {{/if}}
           <div class="col-12">
             <button class="btn" style="background-color: #F73E68; color:white" type="submit">產生短網址</button>
           </div>

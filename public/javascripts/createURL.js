@@ -17,7 +17,7 @@ function generateURL() {
 
 }
 
-function createURL(originURL, res) {
+function createURL(originURL, res, hostname) {
   const Shorturl = require('../../models/shortURL')
   require('../../config/mongoose')
   let shortURL = generateURL()
@@ -28,12 +28,12 @@ function createURL(originURL, res) {
       short_url: shortURL
     })
     .then(() => {
-      res.render('index', { originURL, shortURL })
+      res.render('index', { originURL, shortURL, hostname })
     })
     // if create error (violate short_url unique), regenerate another one
     .catch(() => {
       console.log('invalid URL. regenerate url')
-      createURL(originURL, res)
+      createURL(originURL, res, hostname)
     })
 }
 

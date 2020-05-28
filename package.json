@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "clipboard": "^2.0.6",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "mongoose": "^5.9.15"
